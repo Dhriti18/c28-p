@@ -33,7 +33,7 @@ stone1=new Stone(242,307,25,29);
 	treeObj=new tree(1050,580);
   groundObject=new ground(width/2,600,width,20);
   s=new File(242,310,8,8);
-	sling1=new Chain(stone1.Body,s.body);
+	sling1=new Chain(stone1.body,s.body);
 	Engine.run(engine);
 
 }
