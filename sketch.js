@@ -10,7 +10,8 @@ var mango1;
 var world,boy;
 
 function preload(){
-	boy=loadImage("images/boy.png");
+  boy=loadImage("images/boy.png");
+
   }
 
 function setup() {
@@ -28,12 +29,12 @@ function setup() {
 	mango7=new mango(1098,201,30);
 	mango8=new mango(1064,47,30);
 mango9=new mango(1171,130,30);
-stone1=new Stone(242,307,25,29);
+stone1=new Stone(242,307,60,2);
 //=new Stone(242,310,25,29);
 	treeObj=new tree(1050,580);
   groundObject=new ground(width/2,600,width,20);
-  s=new File(242,310,8,8);
-	sling1=new Chain(stone1.body,s.body);
+  //s=new File(242,310,8,8);
+	sling1=new Chain(stone1.body,{x:240,y:415});
 	Engine.run(engine);
 
 }
@@ -52,11 +53,23 @@ function draw() {
   mango6.display();
   mango7.display();
   mango8.display();
+  sling1.display();
   stone1.display();
   mango9.display();
-sling1.display();
+
  
   //stone2.display(); 
 
   groundObject.display();
+  text("X"+mouseX+"Y"+mouseY,mouseX,mouseY);
+}
+
+
+function mouseDragged(){
+  Matter.Body.setPosition(stone1.body, {x:100,y:100});
+
+}
+function mouseReleased(){
+  Stone1.fly();
+
 }
